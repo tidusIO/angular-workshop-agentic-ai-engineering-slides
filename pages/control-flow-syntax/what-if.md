@@ -16,7 +16,7 @@ layout: default
 
 # What If: Complex Async Patterns?
 
-```html {1-11|13-23}{lineNumbers:true,maxHeight:'450px'}
+```html {lineNumbers:true,maxHeight:'450px'}
 <!-- Traditional Observable approach -->
 <div *ngIf="data$ | async as data; else loading">
   <div *ngIf="data.items?.length > 0; else empty">
@@ -44,7 +44,7 @@ layout: default
 
 # What If: Dynamic Component Loading?
 
-```ts {1-15|17-27}{lineNumbers:true}
+```ts {lineNumbers:true}
 // Combining @if with dynamic components
 @Component({
   template: `
@@ -80,7 +80,7 @@ layout: default
 
 # What If: Nested Loops with Filtering?
 
-```html {1-9|11-19}{lineNumbers:true}
+```html {lineNumbers:true}
 <!-- Complex nested structure -->
 @for (category of categories(); track category.id) {
 <h2>{{ category.name }}</h2>
@@ -243,12 +243,12 @@ layout: default
   <div class="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
     <h3 class="font-bold text-yellow-700 dark:text-yellow-300 mb-3">Challenge</h3>
     <p class="text-sm mb-2">Complex template with multiple ng-templates</p>
-    ```html
-    <ng-container *ngTemplateOutlet="
-      isAdmin ? adminTpl : userTpl;
-      context: { data: userData }
-    "></ng-container>
-    ```
+```html
+<ng-container *ngTemplateOutlet="
+  isAdmin ? adminTpl : userTpl;
+  context: { data: userData }
+"></ng-container>
+```
   </div>
   <div class="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
     <h3 class="font-bold text-green-700 dark:text-green-300 mb-3">Solution</h3>

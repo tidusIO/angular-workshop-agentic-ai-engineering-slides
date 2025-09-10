@@ -91,6 +91,7 @@ layout: default
 ### Code Example in slide
 
 - Never use more than 2 Code-Blocks in one Slide
+- Never nest markdown code blocks inside HTML, due to parsing issues
 - Prefer one code example per slide instead of have multiple
 - Prefer simple code examples (a method)
 - Use comment blocks /_ ... _/ to omit unimportant code lines

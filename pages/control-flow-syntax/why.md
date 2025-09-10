@@ -57,7 +57,7 @@ layout: default
 
 # Real-World Impact
 
-```ts {2|7-9|11-13}{maxHeight:'400px'}
+```ts {maxHeight:'400px'}
 // Before: Component with multiple imports
 import { CommonModule } from '@angular/common';
 
@@ -78,7 +78,7 @@ import { CommonModule } from '@angular/common';
 
 <div class="mt-6 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
   <p class="text-yellow-800 dark:text-yellow-200">
-    <strong>Problem:</strong> Every component using *ngIf, *ngFor needs CommonModule import
+    <strong>Problem:</strong> Every component using \*ngIf, *ngFor needs CommonModule import
   </p>
 </div>
 
@@ -121,17 +121,18 @@ layout: default
 <div class="grid grid-cols-2 gap-6 mt-8">
   <div>
     <h3 class="text-xl font-bold mb-4 text-blue-600 dark:text-blue-400">Before</h3>
-    ```html {1-3|5-7}
-    <div *ngIf="loading; else content">
-      Loading...
-    </div>
+```html {1-3|5-7}
+<div *ngIf="loading; else content">
+  Loading...
+</div>
 
-    <ng-template #content>
-      <div *ngFor="let item of items">
-        {{ item }}
-      </div>
-    </ng-template>
-    ```
+<ng-template #content>
+
+  <div *ngFor="let item of items">
+    {{ item }}
+  </div>
+</ng-template>
+```
 
   </div>
   <div>
