@@ -171,25 +171,25 @@ layout: default
 <div class="grid grid-cols-2 gap-6">
   <div>
     <h3 class="text-lg font-bold mb-3 text-red-600 dark:text-red-400">⚠️ Avoid</h3>
-    ```html
-    <!-- Expensive computation in template -->
-    @for (item of items; track item.id) {
-      @if (complexCalculation(item) > threshold) {
-        <div>{{ item.name }}</div>
-      }
-    }
-    ```
+```html
+<!-- Expensive computation in template -->
+@for (item of items; track item.id) {
+  @if (complexCalculation(item) > threshold) {
+    <div>{{ item.name }}</div>
+  }
+}
+```
   </div>
   <div>
     <h3 class="text-lg font-bold mb-3 text-green-600 dark:text-green-400">✅ Prefer</h3>
-    ```html
-    <!-- Pre-computed values -->
-    @for (item of processedItems(); track item.id) {
-      @if (item.meetsThreshold) {
-        <div>{{ item.name }}</div>
-      }
-    }
-    ```
+```html
+<!-- Pre-computed values -->
+@for (item of processedItems(); track item.id) {
+  @if (item.meetsThreshold) {
+    <div>{{ item.name }}</div>
+  }
+}
+```
   </div>
 </div>
 
@@ -201,43 +201,6 @@ processedItems = computed(() =>
     meetsThreshold: this.complexCalculation(item) > this.threshold(),
   })),
 );
-```
-
----
-layout: default
----
-
-# What If: Animation Integration?
-
-```html {lineNumbers:true}
-<!-- Combining animations with control flow -->
-<div class="container">
-  @if (showContent()) {
-  <div @slideIn class="content">
-    @for (item of items(); track item.id) {
-    <div @fadeIn [style.animation-delay.ms]="$index * 100">{{ item.name }}</div>
-    }
-  </div>
-  }
-</div>
-```
-
-```ts {lineNumbers:true}
-// Animation definitions
-animations: [
-  trigger("slideIn", [
-    transition(":enter", [
-      style({ transform: "translateX(-100%)" }),
-      animate("300ms ease-out", style({ transform: "translateX(0)" })),
-    ]),
-  ]),
-  trigger("fadeIn", [
-    transition(":enter", [
-      style({ opacity: 0 }),
-      animate("200ms ease-in", style({ opacity: 1 })),
-    ]),
-  ]),
-];
 ```
 
 ---
@@ -274,48 +237,6 @@ layout: default
 layout: default
 ---
 
-# What If: Testing Strategies?
-
-```ts {lineNumbers:true,maxHeight:'400px'}
-// Testing components with new control flow
-describe("BookListComponent", () => {
-  it("should show loading state", () => {
-    const fixture = TestBed.createComponent(BookListComponent);
-    fixture.componentInstance.loading.set(true);
-    fixture.detectChanges();
-
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector(".loading")).toBeTruthy();
-  });
-
-  it("should render books with @for", () => {
-    const fixture = TestBed.createComponent(BookListComponent);
-    const mockBooks = [
-      { id: "1", title: "Book 1" },
-      { id: "2", title: "Book 2" },
-    ];
-    fixture.componentInstance.books.set(mockBooks);
-    fixture.detectChanges();
-
-    const bookElements =
-      fixture.nativeElement.querySelectorAll("app-book-item");
-    expect(bookElements.length).toBe(2);
-  });
-
-  it("should show empty state", () => {
-    const fixture = TestBed.createComponent(BookListComponent);
-    fixture.componentInstance.books.set([]);
-    fixture.detectChanges();
-
-    expect(fixture.nativeElement.textContent).toContain("No books available");
-  });
-});
-```
-
----
-layout: default
----
-
 # What If: Migration Challenges?
 
 <div class="grid grid-cols-2 gap-6 mt-8">
@@ -332,13 +253,13 @@ layout: default
   <div class="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
     <h3 class="font-bold text-green-700 dark:text-green-300 mb-3">Solution</h3>
     <p class="text-sm mb-2">Use @if with component composition</p>
-    ```html
-    @if (isAdmin) {
-      <app-admin-view [data]="userData" />
-    } @else {
-      <app-user-view [data]="userData" />
-    }
-    ```
+```html
+@if (isAdmin) {
+  <app-admin-view [data]="userData" />
+} @else {
+  <app-user-view [data]="userData" />
+}
+```
   </div>
 </div>
 

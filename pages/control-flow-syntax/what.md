@@ -24,12 +24,10 @@ transition: slide-left
 </div>
 
 ---
-layout: default
+layout: 2-cols
 ---
 
 # @if - Conditional Rendering
-
-::left::
 
 **Old Syntax (\*ngIf)**
 
@@ -61,8 +59,8 @@ layout: default
 ```
 
 ---
-
-## layout: default
+layout: default
+---
 
 # @if - Multiple Branches
 
@@ -94,12 +92,10 @@ layout: default
 </div>
 
 ---
-
-## layout: default
+layout: two-cols
+---
 
 # @for - List Iteration
-
-::left::
 
 **Old Syntax (\*ngFor)**
 
@@ -115,9 +111,7 @@ layout: default
 </div>
 ```
 
-::right::
-
-**New Syntax (@for)**
+s**New Syntax (@for)**
 
 ```html {lineNumbers:true}
 @for (item of items; track item.id) {
@@ -133,8 +127,8 @@ layout: default
 > **Important:** track is mandatory in @for - prevents performance issues
 
 ---
-
-## layout: default
+layout: two-cols
+---
 
 # @for - Empty State Handling
 
