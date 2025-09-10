@@ -44,3 +44,27 @@ Learn Modern Angular Development Patterns
     <carbon:logo-github />
   </a>
 </div>
+
+---
+src: ./pages/control-flow-syntax/why.md
+---
+
+---
+src: ./pages/control-flow-syntax/what.md
+---
+
+---
+src: ./pages/control-flow-syntax/how.md
+---
+
+---
+src: ./pages/control-flow-syntax/what-if.md
+---
+
+---
+src: ./pages/control-flow-syntax/task.md
+---
+
+---
+src: ./sources.md
+---
