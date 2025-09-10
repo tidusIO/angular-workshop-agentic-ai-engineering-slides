@@ -219,7 +219,7 @@ layout: default
 } @else {
 <!-- SSR fallback -->
 <div class="chart-placeholder">
-  <img src="chart-preview.png" alt="Chart preview" />
+  <div class="placeholder-content">Chart Preview</div>
 </div>
 }
 

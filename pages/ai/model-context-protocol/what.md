@@ -18,7 +18,7 @@ layout: cover
 
 <div>
 
-<img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=500&h=300&fit=crop" alt="Protocol communication" class="rounded-lg shadow-lg" />
+<img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=300&fit=crop" alt="Protocol communication" class="rounded-lg shadow-lg" />
 
 </div>
 
