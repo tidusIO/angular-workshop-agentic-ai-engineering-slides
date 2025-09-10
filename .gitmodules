@@ -1,0 +1,3 @@
+[submodule "submodule/workshop-coding"]
+	path = submodule/workshop-coding
+	url = https://github.com/workshops-de/angular-workshop-agentic-ai-engineering.git
