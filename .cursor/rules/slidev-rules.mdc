@@ -62,7 +62,8 @@ src: ./pages/introduction/welcome.md
   - ifthe resarch finds more content it is mentioned in the outlook as interesting topic
 - All sources used to generate the slides are collected in its own slide-deck `sources.md`
   - Each slide in `sources.md` can habe up to 5 sources listed
-- If you genereate custom HTML ensure support for light and dark mode embracing https://unocss.dev/
+- Avoid HTML if possible
+- Only use it for specialities and use https://unocss.dev/, if needed
 - Prefer Markdown over custom HTML for lists
 - Prefer HTML over Markdown when it comes to info boxes highlighting important statements
 

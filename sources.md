@@ -6,7 +6,158 @@ transition: slide-left
 
 # Sources and References
 
-## Control Flow Syntax Migration
+## Model Context Protocol (MCP)
+
+---
+layout: default
+---
+
+# MCP Official Documentation
+
+## Core Resources
+
+1. **Model Context Protocol Documentation**
+   - https://modelcontextprotocol.io/
+   - Official MCP specification and guides
+
+2. **MCP TypeScript SDK**
+   - https://github.com/modelcontextprotocol/typescript-sdk
+   - Official SDK for building MCP servers and clients
+
+3. **MCP Server Examples**
+   - https://github.com/modelcontextprotocol/servers
+   - Community-maintained MCP server implementations
+
+4. **MCP Client Examples**
+   - https://github.com/modelcontextprotocol/clients
+   - Reference implementations for MCP clients
+
+5. **MCP Specification**
+   - https://spec.modelcontextprotocol.io/
+   - Technical specification and protocol details
+
+---
+layout: default
+---
+
+# AI Assistant Integration
+
+## Platform-Specific Guides
+
+1. **Cursor IDE MCP Integration**
+   - https://cursor.sh/docs
+   - Official Cursor documentation for MCP setup
+
+2. **GitHub Copilot MCP Support**
+   - https://docs.github.com/en/copilot
+   - GitHub's AI assistant integration options
+
+3. **VS Code MCP Extensions**
+   - VS Code Marketplace
+   - Community extensions for MCP support
+
+4. **IntelliJ AI Assistant**
+   - https://www.jetbrains.com/help/idea/ai-assistant.html
+   - JetBrains AI integration capabilities
+
+5. **Claude Desktop MCP**
+   - https://claude.ai/desktop
+   - Anthropic's desktop app with MCP support
+
+---
+layout: default
+---
+
+# Angular-Specific Resources
+
+## Development Tools
+
+1. **Angular CLI Documentation**
+   - https://angular.io/cli
+   - Official Angular CLI commands and options
+
+2. **Angular Update Guide**
+   - https://angular.dev/update-guide
+   - Migration guides and update instructions
+
+3. **Angular Schematics**
+   - https://angular.io/guide/schematics
+   - Custom code generation with Angular CLI
+
+4. **Angular DevTools**
+   - https://angular.io/guide/devtools
+   - Browser extension for debugging Angular apps
+
+5. **Angular Best Practices**
+   - https://angular.dev/best-practices
+   - Official Angular development guidelines
+
+---
+layout: default
+---
+
+# Community Resources
+
+## Tutorials and Examples
+
+1. **"Building Your First MCP Server"**
+   - Author: MCP Community
+   - Source: GitHub Examples
+   - Focus: Step-by-step MCP server creation
+
+2. **"Integrating AI with Development Tools"**
+   - Author: Various Contributors
+   - Source: Dev.to
+   - Focus: Real-world MCP implementations
+
+3. **"Angular CLI Automation with MCP"**
+   - Author: Community
+   - Source: GitHub
+   - Focus: Angular-specific MCP tools
+
+4. **"TypeScript SDK Deep Dive"**
+   - Author: MCP Team
+   - Source: Official Documentation
+   - Focus: Advanced SDK features
+
+5. **"MCP Security Best Practices"**
+   - Author: Security Community
+   - Source: Various
+   - Focus: Secure MCP server development
+
+---
+layout: default
+---
+
+# Tools and Extensions
+
+## Development Environment
+
+1. **Node.js MCP Runtime**
+   - https://nodejs.org/
+   - Required runtime for TypeScript MCP servers
+
+2. **TypeScript Compiler**
+   - https://www.typescriptlang.org/
+   - Compile TypeScript MCP servers to JavaScript
+
+3. **Zod Validation Library**
+   - https://zod.dev/
+   - Schema validation for MCP tool parameters
+
+4. **VS Code TypeScript Extension**
+   - VS Code Marketplace
+   - Enhanced TypeScript development experience
+
+5. **Angular Language Service**
+   - VS Code Extension
+   - IntelliSense for Angular development
+
+---
+layout: default
+---
+
+# Control Flow Syntax Migration
 
 ---
 layout: default

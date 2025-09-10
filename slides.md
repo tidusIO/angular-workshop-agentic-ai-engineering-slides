@@ -66,5 +66,25 @@ src: ./pages/control-flow-syntax/task.md
 ---
 
 ---
+src: ./pages/ai/model-context-protocol/why.md
+---
+
+---
+src: ./pages/ai/model-context-protocol/what.md
+---
+
+---
+src: ./pages/ai/model-context-protocol/how.md
+---
+
+---
+src: ./pages/ai/model-context-protocol/what-if.md
+---
+
+---
+src: ./pages/ai/model-context-protocol/task.md
+---
+
+---
 src: ./sources.md
 ---
