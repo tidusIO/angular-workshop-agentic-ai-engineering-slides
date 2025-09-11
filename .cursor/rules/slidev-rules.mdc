@@ -43,14 +43,6 @@ alwaysApply: true
 ---
 src: ./pages/introduction/welcome.md
 ---
-
----
-
-## src: ./pages/components/basics.md
-
----
-
-## src: ./pages/services/di.md
 ```
 
 ## Slide
