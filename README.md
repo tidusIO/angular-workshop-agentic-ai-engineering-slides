@@ -1,3 +1,7 @@
+> [!WARNING]
+> This is an experimental repostory that uses AI helping us to create & update our workshop material based on our coding solutions.
+
+
 # Welcome to [Slidev](https://github.com/slidevjs/slidev)!
 
 To start the slide show:
