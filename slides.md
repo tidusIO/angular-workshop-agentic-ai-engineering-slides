@@ -46,43 +46,43 @@ Learn Modern Angular Development Patterns
 </div>
 
 ---
-src: ./pages/control-flow-syntax/why.md
+src: ./lessons/01-angular-agentic-ai-engineering/slides/control-flow-syntax/why.md
 ---
 
 ---
-src: ./pages/control-flow-syntax/what.md
+src: ./lessons/01-angular-agentic-ai-engineering/slides/control-flow-syntax/what.md
 ---
 
 ---
-src: ./pages/control-flow-syntax/how.md
+src: ./lessons/01-angular-agentic-ai-engineering/slides/control-flow-syntax/how.md
 ---
 
 ---
-src: ./pages/control-flow-syntax/what-if.md
+src: ./lessons/01-angular-agentic-ai-engineering/slides/control-flow-syntax/what-if.md
 ---
 
 ---
-src: ./pages/control-flow-syntax/task.md
+src: ./lessons/01-angular-agentic-ai-engineering/slides/control-flow-syntax/task.md
 ---
 
 ---
-src: ./pages/ai/model-context-protocol/why.md
+src: ./lessons/01-angular-agentic-ai-engineering/slides/ai/model-context-protocol/why.md
 ---
 
 ---
-src: ./pages/ai/model-context-protocol/what.md
+src: ./lessons/01-angular-agentic-ai-engineering/slides/ai/model-context-protocol/what.md
 ---
 
 ---
-src: ./pages/ai/model-context-protocol/how.md
+src: ./lessons/01-angular-agentic-ai-engineering/slides/ai/model-context-protocol/how.md
 ---
 
 ---
-src: ./pages/ai/model-context-protocol/what-if.md
+src: ./lessons/01-angular-agentic-ai-engineering/slides/ai/model-context-protocol/what-if.md
 ---
 
 ---
-src: ./pages/ai/model-context-protocol/task.md
+src: ./lessons/01-angular-agentic-ai-engineering/slides/ai/model-context-protocol/task.md
 ---
 
 ---
