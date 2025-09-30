@@ -1,0 +1,31 @@
+# Task Configuration
+title: "Vibe Coding - Feature Delivery"
+position: 600
+category: "General"
+preparation: false
+estimated_time_in_minutes: 30
+always_unlocked: false
+
+# Content
+body_markdown: |
+  ## The flow
+
+  - For the next three features we add to our app follow the process we practised before:
+    - draft a prompt and ask Cursor to come up with a refined prompt
+    - instruct Cursor it shall ask for more information if it does not "feel" confident to implement the requirement
+    - use the prompt and let the Agent develop the feature
+    - review the changes in the code and in the browser
+
+  ## Features
+
+  - Add pagination to the book list
+  - Allow crating a new book
+  - Add a kanban board to track which books you have read (use the local storage for persistence) 🚀
+    - The kanban board shall use drag&drop using the @angular/cdk
+
+# Hints
+hint_markdown: |
+  - Instruct Cursor to work on a separate branch if you like to keep the current branch clean
+
+# Git Integration
+git_tag_completed: "solution--feel-the-vibe"

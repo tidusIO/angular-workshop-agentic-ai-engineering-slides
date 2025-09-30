@@ -1,0 +1,57 @@
+# Task Configuration
+title: "Playground - Make yourself familiar with your App"
+position: 100
+category: "General"
+preparation: false
+estimated_time_in_minutes: 20
+always_unlocked: true
+
+# Content
+body_markdown: |
+  ## Prerequisites
+
+  - Chrome (or Firefox)
+  - [Node LTS](https://nodejs.org/) 
+  - [Cursor](https://cursor.com/)
+
+  ## Setup
+
+  **[Fork](https://github.com/workshops-de/angular-workshop-agentic-ai-engineering.git)** the repository dedicated to this workshop from GitHub or simply clone it.
+
+  > 🙏 We highly recommend to [fork](https://github.com/workshops-de/angular-workshop-agentic-ai-engineering.git) this repository into your own GitHub-Account.
+  > Later on we want to work with Background Agents which require access to your GitHub-Account.
+
+  ```bash
+  # clone from your Fork
+  git clone https://github.com/<your-username>/angular-workshop-agentic-ai-engineering.git
+
+  # ...or clone from workshops.de - ⚠️ Background agents wont work
+  git clone https://github.com/workshops-de/angular-workshop-agentic-ai-engineering.git
+
+  # enter
+  cd angular-workshop-agentic-ai-engineering
+
+  # install dependencies
+  npm install
+  ```
+
+  ## Start the API & the app
+
+  ```bash
+  # Open in one terminal session
+  npx bookmonkey-api
+  ```
+
+  ```bash
+  # Open in another terminal session
+  npm start --  --open
+  ```
+
+  ## Take a minute or two
+
+  - This is an unkonw project.
+  - Open up your IDE and walk through the code
+  - Note unknown/unclear topics and discuss them together
+
+# Git Integration
+git_tag_completed: null

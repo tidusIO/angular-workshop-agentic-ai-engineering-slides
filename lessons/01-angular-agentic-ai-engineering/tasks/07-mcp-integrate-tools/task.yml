@@ -1,0 +1,235 @@
+# Task Configuration
+title: "Model Context Protocol - Integrate your tools in your AI Tool-Chain"
+position: 550
+category: "General"
+preparation: false
+estimated_time_in_minutes: 35
+always_unlocked: false
+
+# Content
+body_markdown: |
+  # Workshop Task: Building a Model Context Protocol (MCP) Server for Angular CLI
+
+  ## 🎯 Objective
+
+  In this workshop, you'll build a **Model Context Protocol (MCP) Server** that integrates the Angular CLI with AI assistants like Cursor, GitHub Copilot, or IntelliJ. This will enable AI assistants to generate Angular components directly using the Angular CLI.
+
+  ## 📋 What You'll Build
+
+  A custom MCP server that:
+
+  - ✅ Provides a `generate_component` tool to AI assistants
+  - ✅ Executes Angular CLI commands programmatically
+  - ✅ Handles errors gracefully and provides clear feedback
+  - ✅ Integrates seamlessly with your development environment
+
+  ## 📁 Project Structure
+
+  Your MCP server will be organized as follows:
+
+  ```
+  tools/
+  └── angular-mcp/
+      ├── index.ts          # Main MCP server implementation
+      └── tsconfig.json      # TypeScript configuration
+  ```
+
+  ## 🚀 Step-by-Step
+
+  ### Install Dependencies
+
+  First, add the MCP SDK and required dependencies to your `package.json`:
+
+  ```bash
+  npm install @modelcontextprotocol/sdk zod
+  npm install --save-dev @types/node
+  ```
+
+  Add a build script to your `package.json`:
+
+  ```json
+  {
+    "scripts": {
+      "build.angular-mcp": "tsc --project tools/angular-mcp/tsconfig.json"
+    }
+  }
+  ```
+
+  ### Create TypeScript Configuration
+
+  Create `tools/angular-mcp/tsconfig.json`:
+
+  ```json
+  {
+    "compilerOptions": {
+      "target": "ES2022",
+      "module": "NodeNext",
+      "moduleResolution": "NodeNext",
+      "outDir": "../../dist/angular-mcp",
+      "rootDir": ".",
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "strict": true,
+      "skipLibCheck": true,
+      "resolveJsonModule": true,
+      "types": ["node"]
+    },
+    "include": ["index.ts"],
+    "exclude": ["node_modules", "dist"]
+  }
+  ```
+
+  ### Implement the MCP Server
+
+  Create `tools/angular-mcp/index.ts`:
+
+  ```typescript
+  import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+  import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+  import { exec as execSync } from 'child_process';
+  import { dirname } from 'path';
+  import { promisify } from 'util';
+  import { z } from 'zod';
+
+  const exec = promisify(execSync);
+
+  // Initialize the MCP server with a name and version
+  const server = new McpServer({ name: 'workshops-de-angular-mcp', version: '1.0.0' });
+
+  server.registerTool(
+    'generate_component',
+    {
+      title: 'Generate Angular Component',
+      description: 'Creates a new Angular component using the Angular CLI',
+      inputSchema: {
+        name: z.string().describe('Component name'),
+        path: z.string().optional().describe('Target path or project')
+      }
+    },
+    async ({ name, path }: { name: string; path?: string }) => {
+      // CLI is already in the project root, so we need to remove the src/app prefix
+      path = path?.replace(/^src\/app\/?/, '');
+
+      // Construct the CLI command
+      const target = path ? `${path}/${name}` : name;
+      const cliCommand = `npx @angular/cli generate component ${target} --standalone --flat --skip-tests --inline-style --inline-template --no-interactive`;
+
+      try {
+        // Execute from the project root (two levels up from tools/angular-mcp)
+        const result = await exec(cliCommand, { cwd: dirname(dirname(__dirname)) });
+        return { content: [{ type: 'text', text: `✅ Component generated successfully:\n${result.stdout}` }] };
+      } catch (error: unknown) {
+        return {
+          content: [{ type: 'text', text: `❌ CLI Error: ${error instanceof Error ? error.message : 'Unknown error'}` }]
+        };
+      }
+    }
+  );
+
+  // Start listening for MCP messages on STDIN/STDOUT
+  const transport = new StdioServerTransport();
+
+  server
+    .connect(transport)
+    .then(() =>  console.log('MCP server started'))
+    .catch(error =>  console.error('Error connecting to MCP server:', error));
+  ```
+
+  ### Step 4: Build the MCP Server
+
+  Compile your TypeScript code:
+
+  ```bash
+  npm run build.angular-mcp
+  ```
+
+  This will create a compiled JavaScript file at `dist/angular-mcp/index.js`.
+
+  ### Inspect your MCP
+
+  - The MCP Inspector is a tool that allows to run and execute your MCP-Server.
+  - You can select your tool, enter parameters and execute the tool.
+  - The inspector will log the result.
+  - This helps a lot to ensure that your MCP is working as expected
+
+  ```bash
+  npx @modelcontextprotocol/inspector node dist/angular-mcp/index.js
+  ```
+
+  ![MCP Inspector](assets/mcp-inspector.png)
+
+  ### 🔧 Integration with AI Assistants
+
+  #### Cursor IDE
+
+  1. **Create MCP Configuration**: Create or edit `~/.cursor/mcp.json`:
+
+  ```json
+  {
+    "mcpServers": {
+      "workshops-de-angular-mcp": {
+        "command": "node",
+        "args": ["/path/to/your/project/dist/angular-mcp/index.js"]
+      }
+    }
+  }
+  ```
+
+  2. **Reload Cursor**:
+     - Open Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`)
+     - Run "Developer: Reload Window" or restart Cursor
+
+  #### GitHub Copilot (VS Code)
+
+  1. **Install MCP Extension**: Look for MCP-compatible extensions in the VS Code marketplace
+
+  2. **Configure MCP Server**: Add to your VS Code settings.json:
+
+  ```json
+  {
+    "mcp.servers": {
+      "workshops-de-angular-mcp": {
+        "command": "node",
+        "args": ["/path/to/your/project/dist/angular-mcp/index.js"],
+      }
+    }
+  }
+  ```
+
+  #### IntelliJ IDEA
+
+  1. **Install AI Assistant Plugin**: Ensure you have the AI Assistant plugin installed
+
+  2. **Configure MCP**: Go to Settings → AI Assistant → MCP Servers and add:
+     - **Name**: workshops-de-angular-mcp
+     - **Command**: node
+     - **Arguments**: /path/to/your/project/dist/angular-mcp/index.js
+     - **Working Directory**: /path/to/your/project
+
+  ### 🧪 Testing Your MCP Server
+
+  Once integrated, test your MCP server by asking your AI assistant:
+
+  ```
+  "Generate a component called user-profile in the src/app/components directory"
+  ```
+
+  The AI should now be able to use your custom MCP tool to generate Angular components!
+
+  ## 🎯 Task: Implement an Angular Migration Tool
+
+  **Objective**: Add a new MCP tool that can execute Angular migrations from [angular.dev - Migrations](https://angular.dev/reference/migrations).
+  **Goal**: Prompting your Model to run the migration makes a tool call to your mcp and triggers Angular CLI to run the migration
+
+  ## 📚 Additional Resources
+
+  - [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
+  - [Angular CLI Documentation](https://angular.io/cli)
+  - [MCP SDK for TypeScript](https://github.com/modelcontextprotocol/typescript-sdk)
+
+  ---
+
+  **Happy coding! 🚀**
+
+# Git Integration
+git_tag_completed: "solution--mcp-create-angular-cli-mcp"

@@ -1,0 +1,31 @@
+# Task Configuration
+title: "Vibe Coding - Instrument screenshots and browser MCP"
+position: 760
+category: "General"
+preparation: false
+estimated_time_in_minutes: 20
+always_unlocked: false
+
+# Content
+body_markdown: |
+  ## Book Recommendations
+  > You will let implement to versions of this feature to compare the results
+
+  - Implement the first version of a **Book Recommendations** section.  
+  - Display the recommendations **below the Book Information** in the `BookDetailsComponent` (book details view).  
+  - Instead of only providing a text prompt, explore how real book stores show recommendations (e.g., Thalia, Hugendubel, etc.) and use this as inspiration.  
+
+  ### Approach 1
+
+  - Open a book store page of your choice.  
+  - Take a screenshot of their book recommendation UI component.  
+  - Ask your Agent to implement a similar feature in the application, based on the screenshot.  
+
+  ### Approach 2
+
+  - Install and configure the [Browser MCP](https://browsertools.agentdesk.ai/installation) from [Agentdesk.ai](https://browsertools.agentdesk.ai/installation) for both your **Browser** and your **Agent**.  
+  - Use the Browser MCP to select the recommendation component from the book store you chose.  
+  - Let your Agent implement this version as well, then compare the outcome with **Approach 1**.  
+
+# Git Integration
+git_tag_completed: "solution--vibe-coding-screenshots-browser-mcp"

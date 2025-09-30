@@ -1,0 +1,31 @@
+# Task Configuration
+title: "Prompt Engineering - Rules/Instructions"
+position: 400
+category: "General"
+preparation: false
+estimated_time_in_minutes: 20
+always_unlocked: false
+
+# Content
+body_markdown: |
+  ## Rules
+
+  - We can implement features
+  - The coding style seems to be outdated
+  - With rules we can help cursor to understand modern Angular features and coding styles
+  - `@angular/cli` offers a command that brings modern a modern Angular coding guideline to cursor
+  - Make sure the rules file is applied everywhere in order to take effect
+
+  ```bash
+  npm run ng g ai-config
+  ```
+
+  ![Angular AI Config](assets/angular-ai-config.png)
+
+  ## Edit a book
+
+  - Prompt cursor to develop the feature that allows users to edit a book
+  - Verify that the coding standards from the rule file are applied
+
+# Git Integration
+git_tag_completed: "solution--rules-for-angular"

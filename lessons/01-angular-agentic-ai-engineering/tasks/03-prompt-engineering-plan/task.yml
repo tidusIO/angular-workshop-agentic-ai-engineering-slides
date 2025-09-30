@@ -1,0 +1,16 @@
+# Task Configuration
+title: "Prompt Engineering - Plan"
+position: 250
+category: "General"
+preparation: false
+estimated_time_in_minutes: 20
+always_unlocked: false
+
+# Content
+body_markdown: |
+  Ask your Agent to explain the tech stack, the dependencies and the architecture of your Angular Application.
+  The Agent shall write a summary that is saved as Markdown file next to the README.
+  The summary shall also be linked in the `README.md`.
+
+# Git Integration
+git_tag_completed: null

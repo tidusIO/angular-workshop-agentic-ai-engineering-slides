@@ -1,0 +1,84 @@
+# Task Configuration
+title: "Prompt Engineering - Act"
+position: 300
+category: "General"
+preparation: false
+estimated_time_in_minutes: 15
+always_unlocked: false
+
+# Content
+body_markdown: |
+  ## Preface
+
+  We are not looking for the most clean solution in this task but want to get familiar with Cursor as tool.
+  We want to improve our prompting and review the generated results carefully.
+
+  ## Ask for a Prompt
+
+  - Before we start implementing a new feature, let's take a step back
+  - You might no that unspecific prompts lead to strange results
+  - To create a detailed prompt can be challenging
+  - Luckily the most recent models can reason about good prompts, them selfs
+  - They do the ground work for you
+
+  - Open a new Chat in Cursor
+    - `CMD/Windows`-`SHIFT`-`P`
+    - type `Open Chat`
+    - hit `ENTER`
+  - Swith to Cursor's `Ask-Mode` and ask for a prompt that should cause the `Agent` to implement the feature to display the details of a book.
+
+  ![Cursor Ask Mode](assets/cursor-ask-mode.png)
+
+  ## Compare different models
+
+  - Try at least two different Claude models and compare the prompts
+  - You can open a new Chat-Tab to try another model
+  - Decide which prompt you are going to use in th Agent
+
+  ![Model Comparison](assets/model-comparison.png)
+
+  ## Let the Agent handle your prompt
+
+  - In your chat
+  - Switch to `Agent`-mode and let Cursor develop the feature
+  - Have at the code changes
+  - Review each change and accept/improve or reject it.
+  - Check whether the changes are correct by checking your app in the browser.
+
+  ![Agent Mode](assets/agent-mode.png)
+
+# Hints
+hint_markdown: |
+  ## Prompt
+
+  A generated prompt could look like the following.
+
+  ```md
+  I have an Angular application with a book collection feature. Currently, I have:
+
+  1. A `Book` interface with properties: id, isbn, title, subtitle, author, publisher, numPages, price, cover, abstract, userId
+  2. A `BookListComponent` that displays books in a grid using `BookItemComponent` cards
+  3. A `BookApiClient` service for fetching books
+  4. Routes currently only show the book list at the root path
+
+  I want to add a book detail view that shows comprehensive information about a single book. Please help me:
+
+  1. Create a new `BookDetailComponent` that displays all book properties in an attractive, readable layout
+  2. Add navigation from the book list cards to the detail view (clicking a book card should navigate to its details)
+  3. Add a route for the book detail page (e.g., `/book/:id`)
+  4. Update the `BookApiClient` service to include a method for fetching a single book by ID
+  5. Include proper error handling if a book is not found
+  6. Add a "Back to Books" navigation button in the detail view
+
+  The design should:
+  - Be responsive and use Tailwind CSS classes (consistent with the existing styling)
+  - Show the book cover prominently
+  - Display all book information in a well-organized layout
+  - Handle cases where optional fields (like subtitle or cover) might be missing
+  - Use Angular's standalone component architecture (like the existing components)
+
+  Please provide the complete implementation for all the necessary files and updates.
+  ```
+
+# Git Integration
+git_tag_completed: "solution--prompt-to-feature"

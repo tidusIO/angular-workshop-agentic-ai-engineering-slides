@@ -1,0 +1,22 @@
+# Task Configuration
+title: "Vibe Coding - Refactoring and coding standards"
+position: 650
+category: "General"
+preparation: false
+estimated_time_in_minutes: 30
+always_unlocked: false
+
+# Content
+body_markdown: |
+  ## Let your Agent code with precision
+
+  - Analyse what the AI as built
+  - Review the code as a Frontend Architect
+  - Write down what could be improved
+  - Create a Rule/Instruction from you note
+  - Let AI refactor one file
+  - Check the result
+  - If the result looks promising let AI refactor the whole code base
+
+# Git Integration
+git_tag_completed: "solution--break-the-vibe"

@@ -1,0 +1,31 @@
+# Task Configuration
+title: "Model Context Protocol - Angular CLI"
+position: 500
+category: "General"
+preparation: false
+estimated_time_in_minutes: 15
+always_unlocked: false
+
+# Content
+body_markdown: |
+  ## Communicate via MCP with @angular/cli
+
+  - Setup the MCP for the @angular/cli for Cursor
+  - see: https://angular.dev/ai/mcp#cursor
+  - Afterwards prompt Cursor for modernize the whole application instrumenting the best practices from Angular CLI (see prompt below)
+
+  ```bash
+  npm run ng mcp ## prints the JSON that you can add to your AI editor
+  ```
+
+  ![](https://cdn.workshops.de/system/images/65/medium.png?v=63924581532)
+
+  ## Prompt
+
+  ```
+  - get the best practices from the Angular CLI
+  - modernize the whole angular app
+  ```
+
+# Git Integration
+git_tag_completed: "solution--mcp-for-angular-cli"

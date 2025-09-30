@@ -1,0 +1,37 @@
+# Task Configuration
+title: "Cursor - The AI Code Editor"
+position: 0
+category: "General"
+preparation: true
+estimated_time_in_minutes: 10
+always_unlocked: true
+
+# Content
+body_markdown: |
+  ## Wait... Why a new editor?
+
+  Before we created this workshop we tried various editors including GitHub Copilot, ChatGPT, Wave etc.
+  With [Cursor](https://cursor.com/) we experienced the most reliable coding solution when it came to larger projects.
+  Cursor has a deep integration with [Anthrophic](https://www.anthropic.com/)'s models Opus & Sonnet, which are especially trained for coding. 
+  That's why, we finally decided to us Cursor.
+
+  ## Download and install Cursor
+
+  - [Download Cursor](https://cursor.com/)
+
+  ## What about costs?
+
+  - Getting started with Cursor is free of charge.
+  - After a short while, you'll reach a usage limit and be prompted to create an account.
+  - Once you sign up, you'll receive a 2-week trial of Cursor Pro (no credit card required).
+  - If you exceed the free allowance during our session, we'll provide you with an API key — meaning workshops.de
+   will pick up the tab. 🙂
+
+  ## What if I use GitHub Copilot
+  > This section is based on observations during past workshops and is a subject to change. Development in the field of AI is quick.
+
+  - Currently (14th of September 2025) Cursor seems to deliver more reliable results that GitHub Copilot. This is not only a matter of the used models (LLMs) but how the IDE is capable of interacting with them
+  - ⚠️ If you use GitHub Copilot within a Company please make sure that MCPs are allowed and that you can use premium models, too.
+
+# Git Integration
+git_tag_completed: null

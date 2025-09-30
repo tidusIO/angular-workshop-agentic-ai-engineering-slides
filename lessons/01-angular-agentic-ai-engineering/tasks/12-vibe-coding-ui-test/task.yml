@@ -1,0 +1,54 @@
+# Task Configuration
+title: "Vibe Coding - UI Test"
+position: 800
+category: "General"
+preparation: false
+estimated_time_in_minutes: 30
+always_unlocked: false
+
+# Content
+body_markdown: |
+  ## Rule/Instruction File scoped to Playwright tests
+  - Might define the scope only for files under `e2e/**` (`specs`, `pages`, `fixtures`, `utils`, `bdd`)
+  - Could suggest BDD-style descriptions or Gherkin
+  - Might rely on Page Objects
+  - Could prefer `data-testid` selectors
+  - One possible approach is one spec file per feature/route
+  - Assertions could focus on: `toBeVisible`, `toHaveText`, `toHaveURL`
+  - Output might be runnable code with passing tests
+
+  ## How the AI could write tests
+  - Tests could be expressed in BDD style (`test.describe` + Given/When/Then or Gherkin)
+  - Page Objects might be used per feature
+  - `data-testid` selectors could be the default choice
+  - Tests could aim to be deterministic
+  - Scenarios might cover happy path, empty states, and error states
+
+  ## Possible structure for generated test files
+  - Page Object: perhaps one class per page or feature
+  - Spec file: maybe one spec per feature in `e2e/specs`
+  - Optional Gherkin: `.feature` files with step definitions
+
+  ## Example idea: List of Books
+  - A Page Object could represent the "Books" page
+  - A spec might test scenarios like:
+    - List rendering with at least one item
+    - Search filtering the list by title
+    - Empty search restoring the full list
+  - Suggested test IDs might include: `books-list`, `book-item`, `book-search`, `add-book`
+
+  ## Extending to the whole app
+  - User journeys could be identified from routes and navigation
+  - For each journey it might be useful to:
+    - Propose required `data-testid`s
+    - Define Page Objects
+    - Draft specs (and optional feature files)
+    - Cover happy path, validation errors, empty/error states, and authorization checks
+
+  ## Ensuring tests are passing
+  - The Angular app could be run locally
+  - Playwright tests might then be executed against the running app
+  - A test report could be generated and reviewed
+
+# Git Integration
+git_tag_completed: "solution--vibe-coding-ui-testing"
