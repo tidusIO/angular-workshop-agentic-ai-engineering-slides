@@ -1,12 +1,15 @@
 {
-  "name": "modern-angular",
+  "name": "angular-workshop-agentic-ai-engineering",
   "type": "module",
   "private": true,
   "scripts": {
     "start": "slidev",
-    "build": "slidev build",
     "dev": "slidev --open",
-    "export": "slidev export"
+    "build": "./scripts/build-all.sh",
+    "dev:01": "slidev lessons/01-angular-agentic-ai-engineering/01-angular-agentic-ai-engineering.md --open",
+    "build:01": "slidev build lessons/01-angular-agentic-ai-engineering/01-angular-agentic-ai-engineering.md --out dist/01-angular-agentic-ai-engineering",
+    "export": "slidev export",
+    "preview": "npx vite preview --outDir dist"
   },
   "dependencies": {
     "@slidev/cli": "^52.1.0",
