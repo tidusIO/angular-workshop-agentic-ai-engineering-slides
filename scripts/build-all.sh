@@ -6,10 +6,29 @@ CYAN='\033[0;36m'
 RED='\033[0;31m'
 RESET='\033[0m'
 
+# Parse arguments
+BASE_PREFIX=""
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --base)
+      BASE_PREFIX="$2"
+      # Remove trailing slash if present
+      BASE_PREFIX="${BASE_PREFIX%/}"
+      shift 2
+      ;;
+    *)
+      shift
+      ;;
+  esac
+done
+
 # Navigate to project root
 cd "$(dirname "$0")/.." || exit 1
 
 echo -e "${CYAN}Building all slide decks...${RESET}"
+if [[ -n "$BASE_PREFIX" ]]; then
+  echo -e "Base prefix: ${CYAN}$BASE_PREFIX${RESET}"
+fi
 echo ""
 
 build_slide() {
@@ -22,12 +41,15 @@ build_slide() {
   OUT=$(echo "$YAML" | awk -F': ' '/^out:/ {gsub(/^ +| +$/, "", $2); print $2}')
 
   if [[ -n "$BASE" && -n "$OUT" ]]; then
+    # Prepend base prefix if provided (for GitHub Pages subdirectory hosting)
+    FULL_BASE="${BASE_PREFIX}${BASE}"
+
     echo -e "${GREEN}Building${RESET} $FILE"
-    echo "   ➤ base: $BASE"
+    echo "   ➤ base: $FULL_BASE"
     echo "   ➤ out : $OUT"
 
     # Build from project root with full path
-    pnpm exec slidev build "$FILE" --base "$BASE" --out "$OUT"
+    pnpm exec slidev build "$FILE" --base "$FULL_BASE" --out "$OUT"
 
     echo ""
   else
@@ -36,7 +58,7 @@ build_slide() {
 }
 
 # Build root slides
-for FILE in ./*.md; do
+for FILE in ./00-index.md; do
   if [[ -f "$FILE" ]]; then
     build_slide "$FILE"
   fi
@@ -49,22 +71,23 @@ for FILE in ./lessons/*/*.md; do
   fi
 done
 
-# Create redirect index.html
+# Create redirect index.html with correct base prefix
 mkdir -p dist
-cat > dist/index.html << 'EOF'
+REDIRECT_URL="${BASE_PREFIX}/00-index/"
+cat > dist/index.html << EOF
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=/00-index/">
+  <meta http-equiv="refresh" content="0; url=${REDIRECT_URL}">
   <title>Redirecting...</title>
 </head>
 <body>
-  <p>Redirecting to <a href="/00-index/">slide decks</a>...</p>
+  <p>Redirecting to <a href="${REDIRECT_URL}">slide decks</a>...</p>
 </body>
 </html>
 EOF
-echo -e "${GREEN}Created${RESET} dist/index.html (redirects to /00-index/)"
+echo -e "${GREEN}Created${RESET} dist/index.html (redirects to ${REDIRECT_URL})"
 
 echo ""
 echo -e "${CYAN}Build complete!${RESET}"

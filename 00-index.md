@@ -29,7 +29,7 @@ Slide Deck Collection
 
 <div class="grid grid-cols-1 gap-4 mt-8 text-left max-w-xl mx-auto">
 
-<a href="/01-angular-agentic-ai-engineering/" class="p-4 rounded-lg bg-white bg-opacity-10 hover:bg-opacity-20 transition-all no-underline">
+<a href="../01-angular-agentic-ai-engineering/" class="p-4 rounded-lg bg-white bg-opacity-10 hover:bg-opacity-20 transition-all no-underline">
   <h3 class="text-xl font-bold">01 - Agentic AI Engineering</h3>
   <p class="text-sm opacity-70">Learn how to leverage AI-powered tools for Angular development</p>
 </a>
