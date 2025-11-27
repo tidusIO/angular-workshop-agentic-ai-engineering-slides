@@ -57,6 +57,32 @@ build_slide() {
   fi
 }
 
+export_pdf() {
+  local FILE=$1
+  local LESSON_DIR=$(dirname "$FILE")
+
+  # Only export PDFs for lesson slides, not the index
+  if [[ "$FILE" == *"/lessons/"* ]]; then
+    # Get the lesson name from the directory
+    local LESSON_NAME=$(basename "$LESSON_DIR")
+    local PDF_OUTPUT="${LESSON_DIR}/slides.pdf"
+
+    echo -e "${GREEN}Exporting PDF${RESET} $FILE"
+    echo "   ➤ output: $PDF_OUTPUT"
+
+    # Export to PDF using Slidev
+    npm exec -- slidev export "$FILE" --output "$PDF_OUTPUT" --timeout 60000 2>/dev/null
+
+    if [[ -f "$PDF_OUTPUT" ]]; then
+      echo -e "   ${GREEN}✓${RESET} PDF exported successfully"
+    else
+      echo -e "   ${YELLOW}⚠${RESET} PDF export failed (Playwright may not be installed)"
+    fi
+
+    echo ""
+  fi
+}
+
 # Build root slides
 for FILE in ./00-index.md; do
   if [[ -f "$FILE" ]]; then
@@ -64,10 +90,11 @@ for FILE in ./00-index.md; do
   fi
 done
 
-# Build lesson slides
+# Build lesson slides and export PDFs
 for FILE in ./lessons/*/*.md; do
   if [[ -f "$FILE" ]]; then
     build_slide "$FILE"
+    export_pdf "$FILE"
   fi
 done
 
