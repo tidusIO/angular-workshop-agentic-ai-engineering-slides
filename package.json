@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "slidev",
-    "dev": "slidev --open",
+    "dev": "./scripts/dev.sh",
     "build": "./scripts/build-all.sh",
     "dev:01": "slidev lessons/01-angular-agentic-ai-engineering/01-angular-agentic-ai-engineering.md --open",
     "build:01": "slidev build lessons/01-angular-agentic-ai-engineering/01-angular-agentic-ai-engineering.md --out dist/01-angular-agentic-ai-engineering",
