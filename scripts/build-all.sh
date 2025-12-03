@@ -59,18 +59,18 @@ build_slide() {
 
 export_pdf() {
   local FILE=$1
-  local LESSON_DIR=$(dirname "$FILE")
 
   # Only export PDFs for lesson slides, not the index
   if [[ "$FILE" == *"/lessons/"* ]]; then
     # Get the lesson name from the directory
+    local LESSON_DIR=$(dirname "$FILE")
     local LESSON_NAME=$(basename "$LESSON_DIR")
-    local PDF_OUTPUT="${LESSON_DIR}/slides.pdf"
+    local PDF_OUTPUT="dist/${LESSON_NAME}/slides.pdf"
 
     echo -e "${GREEN}Exporting PDF${RESET} $FILE"
     echo "   ➤ output: $PDF_OUTPUT"
 
-    # Export to PDF using Slidev
+    # Export to PDF using Slidev (into dist folder alongside HTML)
     npm exec -- slidev export "$FILE" --output "$PDF_OUTPUT" --timeout 60000 2>/dev/null
 
     if [[ -f "$PDF_OUTPUT" ]]; then

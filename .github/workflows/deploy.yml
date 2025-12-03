@@ -6,7 +6,7 @@ on:
     branches: [main]
 
 permissions:
-  contents: write  # Need write to commit PDFs
+  contents: read
   pages: write
   id-token: write
 
@@ -36,14 +36,6 @@ jobs:
 
       - name: Build slides and export PDFs
         run: ./scripts/build-all.sh --base /${{github.event.repository.name}}
-
-      - name: Commit PDFs
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add lessons/*/slides.pdf
-          git diff --staged --quiet || git commit -m "chore: update exported PDFs [skip ci]"
-          git push || echo "No changes to push"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
